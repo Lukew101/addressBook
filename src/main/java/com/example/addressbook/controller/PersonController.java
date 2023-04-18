@@ -45,7 +45,7 @@ public class PersonController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(params = "id")
-    public void delete(@RequestParam Long id) {
+    public void deletePerson(@RequestParam Long id) {
         personService.deletePerson(id);
     }
 }
