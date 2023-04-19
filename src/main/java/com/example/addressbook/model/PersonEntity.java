@@ -5,19 +5,25 @@ import jakarta.persistence.Table;
 
 import jakarta.persistence.*;
 import java.util.Objects;
-
-public class Person {
+@Entity
+@Table(name = "persons")
+public class PersonEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "address")
     private String address;
+    @Column(name = "mobileNumber")
     private long mobileNumber;
-    public Person(Long id, String name, String address, long mobileNumber) {
+    public PersonEntity(Long id, String name, String address, long mobileNumber) {
         this.name = name;
         this.address = address;
         this.mobileNumber = mobileNumber;
         this.id = id;
     }
-    public Person(){}
+    public PersonEntity(){}
     public Long getId() {
         return id;
     }
@@ -46,5 +52,14 @@ public class Person {
 
     public void setMobileNumber(long mobileNumber) {
         this.mobileNumber = mobileNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", mobileNumber=" + mobileNumber +
+                '}';
     }
 }
